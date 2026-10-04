@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AttendEase - Student Attendance Management System">
+    <title>AttendEase | Student Attendance Management System</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-logo">A</div>
+        <h1>AttendEase</h1>
+    </div>
+
+    <nav class="nav-links">
+        <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+        <button class="nav-btn" data-page="register">Register</button>
+        <button class="nav-btn" data-page="attendance">Mark Attendance</button>
+        <button class="nav-btn" data-page="students">Students</button>
+        <button class="nav-btn" data-page="reports">Reports</button>
+    </nav>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+        ☰
+    </button>
+
+</header>
+
+
+<!-- Main Container -->
+<main class="main-container">
+
+
+    <!-- ================= DASHBOARD PAGE ================= -->
+
+    <section class="page-section active" id="dashboard">
+
+        <div class="page-heading">
+
+            <div>
+                <p class="eyebrow">OVERVIEW</p>
+
+                <h2>Attendance dashboard</h2>
+
+                <p class="page-description">
+                    A quick look at your class attendance for today.
+                </p>
+            </div>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span id="themeIcon">☾</span>
+            </button>
+
+        </div>
+
+
+        <!-- Dashboard Statistics -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <p>Total students</p>
+                    <div class="stat-icon purple">♟</div>
+                </div>
+
+                <h3 id="totalStudents">0</h3>
+
+                <p class="stat-description">
+                    Registered in the system
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <p>Present today</p>
+                    <div class="stat-icon green">✓</div>
+                </div>
+
+                <h3 id="presentStudents">0</h3>
+
+                <p class="stat-description">
+                    Marked present
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <p>Absent today</p>
+                    <div class="stat-icon red">−</div>
+                </div>
+
+                <h3 id="absentStudents">0</h3>
+
+                <p class="stat-description">
+                    Marked absent
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <p>Not marked</p>
+                    <div class="stat-icon orange">◷</div>
+                </div>
+
+                <h3 id="notMarkedStudents">0</h3>
+
+                <p class="stat-description">
+                    Still awaiting attendance
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard Bottom Cards -->
+
+        <div class="dashboard-bottom">
+
+            <div class="content-card progress-card">
+
+                <p class="eyebrow">TODAY'S SUMMARY</p>
+
+                <div class="progress-heading">
+
+                    <h3>Attendance progress</h3>
+
+                    <span id="attendancePercentage">0%</span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div class="progress-fill" id="progressFill"></div>
+
+                </div>
+
+                <p class="progress-message" id="progressMessage">
+                    No attendance has been marked yet.
+                </p>
+
+            </div>
+
+
+            <div class="content-card tip-card">
+
+                <p class="eyebrow">QUICK TIP</p>
+
+                <div class="tip-decoration">✦</div>
+
+                <h3>Small steps, accurate records.</h3>
+
+                <p>
+                    Register your students first, then use Mark Attendance
+                    to record each student's status for today.
+                </p>
+
+                <button class="primary-btn" data-goto="attendance">
+                    Take attendance →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= REGISTER PAGE ================= -->
+
+    <section class="page-section" id="register">
+
+        <div class="page-heading">
+
+            <div>
+                <p class="eyebrow">NEW STUDENT</p>
+
+                <h2>Register student</h2>
+
+                <p class="page-description">
+                    Add a new student to your attendance management system.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="content-card form-card">
+
+            <h3>Student information</h3>
+
+            <p class="form-description">
+                Enter the student's details below.
+            </p>
+
+            <form id="registrationForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="studentName">Full name *</label>
+
+                        <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter student name"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentRoll">Roll number *</label>
+
+                        <input
+                                type="text"
+                                id="studentRoll"
+                                placeholder="Enter roll number"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentEmail">Email address</label>
+
+                        <input
+                                type="email"
+                                id="studentEmail"
+                                placeholder="Enter email address"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentClass">Class / Department *</label>
+
+                        <input
+                                type="text"
+                                id="studentClass"
+                                placeholder="Example: BCA - II Year"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentPhone">Phone number</label>
+
+                        <input
+                                type="tel"
+                                id="studentPhone"
+                                placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="studentGender">Gender</label>
+
+                        <select id="studentGender">
+
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="reset" class="secondary-btn">
+                        Clear form
+                    </button>
+
+                    <button type="submit" class="primary-btn">
+                        + Register student
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ATTENDANCE PAGE ================= -->
+
+    <section class="page-section" id="attendance">
+
+        <div class="page-heading">
+
+            <div>
+                <p class="eyebrow">DAILY RECORDS</p>
+
+                <h2>Mark attendance</h2>
+
+                <p class="page-description">
+                    Mark students as present or absent for today.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="content-card attendance-card">
+
+            <div class="attendance-header">
+
+                <div>
+                    <h3>Today's attendance</h3>
+
+                    <p id="attendanceDate"></p>
+                </div>
+
+                <button class="primary-btn" id="saveAttendanceBtn">
+                    Save attendance
+                </button>
+
+            </div>
+
+
+            <div class="attendance-summary">
+
+                    <span class="summary-present">
+                        Present: <strong id="attendancePresentCount">0</strong>
+                    </span>
+
+                <span class="summary-absent">
+                        Absent: <strong id="attendanceAbsentCount">0</strong>
+                    </span>
+
+                <span class="summary-unmarked">
+                        Not marked: <strong id="attendanceUnmarkedCount">0</strong>
+                    </span>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Attendance Status</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="attendanceTableBody">
+
+                    <tr>
+                        <td colspan="4" class="empty-message">
+                            No students registered yet.
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STUDENTS PAGE ================= -->
+
+    <section class="page-section" id="students">
+
+        <div class="page-heading">
+
+            <div>
+                <p class="eyebrow">STUDENT DIRECTORY</p>
+
+                <h2>Student records</h2>
+
+                <p class="page-description">
+                    View and manage all registered students.
+                </p>
+            </div>
+
+            <button class="primary-btn" data-goto="register">
+                + Add student
+            </button>
+
+        </div>
+
+
+        <div class="content-card students-card">
+
+            <div class="search-bar">
+
+                <input
+                        type="search"
+                        id="studentSearch"
+                        placeholder="Search by name or roll number..."
+                >
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="studentsTableBody">
+
+                    <tr>
+                        <td colspan="5" class="empty-message">
+                            No student records available.
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= REPORTS PAGE ================= -->
+
+    <section class="page-section" id="reports">
+
+        <div class="page-heading">
+
+            <div>
+                <p class="eyebrow">ATTENDANCE ANALYTICS</p>
+
+                <h2>Attendance reports</h2>
+
+                <p class="page-description">
+                    View attendance records and generate reports.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="report-summary-grid">
+
+            <div class="content-card report-stat">
+
+                <p>Total students</p>
+
+                <h3 id="reportTotalStudents">0</h3>
+
+            </div>
+
+
+            <div class="content-card report-stat">
+
+                <p>Total present records</p>
+
+                <h3 id="reportPresent">0</h3>
+
+            </div>
+
+
+            <div class="content-card report-stat">
+
+                <p>Total absent records</p>
+
+                <h3 id="reportAbsent">0</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-card reports-card">
+
+            <div class="report-header">
+
+                <div>
+                    <h3>Attendance history</h3>
+
+                    <p>View saved attendance records.</p>
+                </div>
+
+                <button class="primary-btn" id="downloadReportBtn">
+                    ↓ Download CSV
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="reportsTableBody">
+
+                    <tr>
+                        <td colspan="4" class="empty-message">
+                            No attendance records available.
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= NOTIFICATION ================= -->
+
+    <div class="toast" id="toastMessage" role="status" aria-live="polite"></div>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <p>AttendEase</p>
+
+    <p>
+        Student Attendance Management System · Student project
+    </p>
+
+</footer>
+
+
+
+<!-- JavaScript File -->
+<script src="script.js"></script>
+
+</body>
+</html>

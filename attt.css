@@ -1,0 +1,1389 @@
+
+/* =========================================================
+   ATTENDEASE - STUDENT ATTENDANCE MANAGEMENT SYSTEM
+   Complete CSS Stylesheet
+   File Name: style.css
+========================================================= */
+
+
+/* ================= GOOGLE FONT ================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+    --primary: #5700e9;
+    --primary-dark: #4100c7;
+    --primary-light: #8d28e9;
+
+    --background: #ffdb20;
+    --background-secondary: #ffd21a;
+
+    --text-dark: #281747;
+    --text-muted: #85819a;
+
+    --white: #ffffff;
+
+    --green: #169b59;
+    --red: #e34b58;
+    --orange: #e99a13;
+
+    --border: #ece8f3;
+
+    --card-radius: 19px;
+
+    --shadow: 0 12px 30px rgba(65, 0, 100, 0.06);
+
+    --transition: all 0.25s ease;
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(
+            120deg,
+            #ffca16 0%,
+            #ffdf28 100%
+    );
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ================= NAVIGATION BAR ================= */
+
+.navbar {
+    width: 100%;
+    min-height: 98px;
+    padding: 18px 3.4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+            105deg,
+            #4c00e5 0%,
+            #7020e9 65%,
+            #8c29e4 100%
+    );
+
+    color: var(--white);
+
+    position: relative;
+    z-index: 100;
+
+    box-shadow: 0 5px 20px rgba(65, 0, 120, 0.12);
+}
+
+
+/* ================= BRAND ================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-logo {
+    width: 46px;
+    height: 46px;
+
+    background: white;
+    color: var(--primary);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.brand h1 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+
+/* ================= NAVIGATION LINKS ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn {
+    padding: 13px 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.42);
+
+    background: transparent;
+
+    color: white;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--primary);
+    border-color: white;
+}
+
+.mobile-menu-btn {
+    display: none;
+
+    border: none;
+    background: white;
+    color: var(--primary);
+
+    border-radius: 9px;
+
+    padding: 9px 13px;
+
+    font-size: 22px;
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.main-container {
+    width: 100%;
+    max-width: 1700px;
+
+    margin: 0 auto;
+
+    padding: 48px 3.8% 30px;
+
+    min-height: calc(100vh - 170px);
+}
+
+
+/* ================= PAGE SECTIONS ================= */
+
+.page-section {
+    display: none;
+    animation: fadeIn 0.35s ease;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: #7529df;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 16px;
+}
+
+.page-heading h2 {
+    font-size: clamp(29px, 3.1vw, 45px);
+
+    font-weight: 800;
+
+    letter-spacing: -1.2px;
+
+    line-height: 1.2;
+
+    margin-bottom: 12px;
+
+    color: #29164d;
+}
+
+.page-description {
+    color: #71667f;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* ================= THEME TOGGLE ================= */
+
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: var(--primary);
+
+    font-size: 21px;
+
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(25deg);
+}
+
+
+/* ================= DASHBOARD STATISTICS ================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 23px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 25px 27px;
+
+    min-height: 168px;
+
+    border-radius: var(--card-radius);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 35px rgba(65, 0, 100, 0.1);
+}
+
+.stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 0;
+}
+
+.stat-top p {
+    color: #79738a;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.stat-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-icon.purple {
+    background: #f0e5ff;
+    color: #6c18d9;
+}
+
+.stat-icon.green {
+    background: #e1f7e9;
+    color: #168d4c;
+}
+
+.stat-icon.red {
+    background: #ffe9e9;
+    color: #dc414a;
+}
+
+.stat-icon.orange {
+    background: #fff2d9;
+    color: #c98500;
+}
+
+.stat-card h3 {
+    font-size: 40px;
+
+    font-weight: 800;
+
+    color: #291b42;
+
+    margin-top: -5px;
+    margin-bottom: 9px;
+}
+
+.stat-description {
+    color: #9992a6;
+    font-size: 13px;
+}
+
+
+/* ================= DASHBOARD BOTTOM ================= */
+
+.dashboard-bottom {
+    display: grid;
+
+    grid-template-columns: 1.35fr 1.05fr;
+
+    gap: 21px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================= CONTENT CARDS ================= */
+
+.content-card {
+    background: white;
+
+    border-radius: var(--card-radius);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* ================= PROGRESS CARD ================= */
+
+.progress-card {
+    min-height: 265px;
+}
+
+.progress-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 26px;
+}
+
+.progress-heading h3 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.progress-heading span {
+    color: #6716d5;
+
+    font-size: 37px;
+    font-weight: 800;
+}
+
+.progress-track {
+    width: 100%;
+    height: 14px;
+
+    background: #eee8f4;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    margin-bottom: 16px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(
+            90deg,
+            #5700e9,
+            #a12ee9
+    );
+
+    border-radius: 30px;
+
+    transition: width 0.5s ease;
+}
+
+.progress-message {
+    color: #89839a;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ================= QUICK TIP CARD ================= */
+
+.tip-card {
+    position: relative;
+
+    min-height: 265px;
+
+    background: linear-gradient(
+            135deg,
+            #ffffff,
+            #faf3ff
+    );
+}
+
+.tip-decoration {
+    position: absolute;
+
+    top: 38px;
+    right: 32px;
+
+    color: #9b24ed;
+
+    font-size: 32px;
+}
+
+.tip-card h3 {
+    font-size: 23px;
+    font-weight: 700;
+
+    margin-bottom: 19px;
+
+    max-width: 85%;
+}
+
+.tip-card > p:not(.eyebrow) {
+    color: #81788f;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 23px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.primary-btn {
+    background: linear-gradient(
+            100deg,
+            #5700e9,
+            #9029e6
+    );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 15px 21px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.primary-btn:hover {
+    background: linear-gradient(
+            100deg,
+            #4000c4,
+            #7416d0
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(87, 0, 233, 0.2);
+}
+
+.secondary-btn {
+    background: #f0eaf7;
+
+    color: #5e32a2;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 15px 21px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.secondary-btn:hover {
+    background: #e5d8f4;
+}
+
+
+/* ================= FORM CARD ================= */
+
+.form-card {
+    max-width: 950px;
+}
+
+.form-card h3,
+.attendance-header h3,
+.report-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.form-description {
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================= FORM GRID ================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.form-group label {
+    color: #38284d;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #fbfaff;
+
+    border: 1px solid #e5dfea;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #34234b;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #7e27e5;
+
+    box-shadow: 0 0 0 3px rgba(126, 39, 229, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #aaa4b2;
+}
+
+
+/* ================= FORM ACTIONS ================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+
+/* ================= ATTENDANCE CARD ================= */
+
+.attendance-card,
+.students-card,
+.reports-card {
+    width: 100%;
+}
+
+.attendance-header,
+.report-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.attendance-header p,
+.report-header p {
+    color: var(--text-muted);
+
+    font-size: 14px;
+}
+
+
+/* ================= ATTENDANCE SUMMARY ================= */
+
+.attendance-summary {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-bottom: 23px;
+}
+
+.attendance-summary span {
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.summary-present {
+    color: #14834b;
+    background: #e4f8eb;
+}
+
+.summary-absent {
+    color: #d33c48;
+    background: #ffe8e8;
+}
+
+.summary-unmarked {
+    color: #a36a00;
+    background: #fff2d8;
+}
+
+
+/* ================= TABLES ================= */
+
+.table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 600px;
+}
+
+thead {
+    background: #f8f5fc;
+}
+
+th {
+    padding: 17px 15px;
+
+    text-align: left;
+
+    color: #685a7a;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
+}
+
+td {
+    padding: 17px 15px;
+
+    border-bottom: 1px solid #eeeaf3;
+
+    color: #51445f;
+
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #fcfaff;
+}
+
+.empty-message {
+    padding: 35px 15px;
+
+    text-align: center;
+
+    color: #9991a5;
+
+    font-size: 14px;
+}
+
+
+/* ================= ATTENDANCE SELECT ================= */
+
+.status-select {
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid #e5deed;
+
+    background: white;
+
+    color: #51445f;
+
+    outline: none;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.status-select:focus {
+    border-color: var(--primary);
+}
+
+
+/* ================= STATUS BADGES ================= */
+
+.status-badge {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.status-badge.present {
+    color: #12834b;
+    background: #e2f7e9;
+}
+
+.status-badge.absent {
+    color: #d53c48;
+    background: #ffe6e6;
+}
+
+.status-badge.not-marked {
+    color: #a36a00;
+    background: #fff2d9;
+}
+
+
+/* ================= SEARCH BAR ================= */
+
+.search-bar {
+    margin-bottom: 25px;
+
+    max-width: 430px;
+}
+
+.search-bar input {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    background: #fbfaff;
+
+    border: 1px solid #e5dfea;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #34234b;
+
+    transition: var(--transition);
+}
+
+.search-bar input:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(87, 0, 233, 0.1);
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.delete-btn {
+    border: none;
+
+    background: #ffe9e9;
+
+    color: #d53c48;
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.delete-btn:hover {
+    background: #ffd4d4;
+}
+
+.edit-btn {
+    border: none;
+
+    background: #eee5ff;
+
+    color: #6d20d2;
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background: #dfd0ff;
+}
+
+
+/* ================= REPORT STATISTICS ================= */
+
+.report-summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.report-stat {
+    min-height: 120px;
+}
+
+.report-stat p {
+    color: #858094;
+
+    font-size: 14px;
+
+    margin-bottom: 13px;
+}
+
+.report-stat h3 {
+    color: #5c13cb;
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+
+/* ================= REPORT HEADER ================= */
+
+.reports-card {
+    margin-bottom: 30px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    width: 100%;
+
+    padding: 10px 4% 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color: #8b732e;
+
+    font-size: 12px;
+}
+
+
+/* ================= TOAST NOTIFICATION ================= */
+
+.toast {
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    background: #281747;
+
+    color: white;
+
+    padding: 15px 22px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition: var(--transition);
+
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode {
+    background: linear-gradient(
+            120deg,
+            #171023,
+            #241435
+    );
+
+    color: #f2ecff;
+}
+
+body.dark-mode .main-container {
+    color: #f2ecff;
+}
+
+body.dark-mode .page-heading h2 {
+    color: #f4ecff;
+}
+
+body.dark-mode .page-description {
+    color: #c0b5d1;
+}
+
+body.dark-mode .content-card,
+body.dark-mode .stat-card {
+    background: #30213e;
+
+    color: #f3ecff;
+}
+
+body.dark-mode .stat-card h3,
+body.dark-mode .progress-heading h3,
+body.dark-mode .tip-card h3,
+body.dark-mode .form-card h3,
+body.dark-mode .attendance-header h3,
+body.dark-mode .report-header h3 {
+    color: #f4ecff;
+}
+
+body.dark-mode .stat-top p,
+body.dark-mode .stat-description,
+body.dark-mode .progress-message,
+body.dark-mode .tip-card > p:not(.eyebrow),
+body.dark-mode .form-description,
+body.dark-mode .attendance-header p,
+body.dark-mode .report-header p,
+body.dark-mode .report-stat p {
+    color: #c0b5d1;
+}
+
+body.dark-mode .tip-card {
+    background: linear-gradient(
+            135deg,
+            #30213e,
+            #3a2450
+    );
+}
+
+body.dark-mode .form-group label {
+    color: #eee5ff;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .search-bar input,
+body.dark-mode .status-select {
+    background: #3c2c4b;
+
+    color: white;
+
+    border-color: #5a476b;
+}
+
+body.dark-mode thead {
+    background: #3b2b4a;
+}
+
+body.dark-mode th {
+    color: #ded0ee;
+}
+
+body.dark-mode td {
+    color: #e3d9ed;
+
+    border-color: #493858;
+}
+
+body.dark-mode tbody tr:hover {
+    background: #3b2b4a;
+}
+
+body.dark-mode .progress-track {
+    background: #493858;
+}
+
+body.dark-mode .secondary-btn {
+    background: #493858;
+
+    color: white;
+}
+
+body.dark-mode .footer {
+    color: #d0bb88;
+}
+
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+
+/* Tablets */
+
+@media screen and (max-width: 1100px) {
+
+    .navbar {
+        padding: 18px 3%;
+    }
+
+    .brand h1 {
+        font-size: 22px;
+    }
+
+    .nav-btn {
+        padding: 11px 12px;
+
+        font-size: 12px;
+    }
+
+    .main-container {
+        padding: 40px 3%;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* Small Tablets */
+
+@media screen and (max-width: 850px) {
+
+    .navbar {
+        min-height: 80px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 80px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 15px 4%;
+
+        background: #5700e9;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 10px;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-btn {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 13px;
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* Mobile Phones */
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .brand-logo {
+        width: 40px;
+        height: 40px;
+
+        font-size: 23px;
+    }
+
+    .brand h1 {
+        font-size: 20px;
+    }
+
+    .main-container {
+        padding: 30px 5%;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .page-heading h2 {
+        font-size: 30px;
+    }
+
+    .page-description {
+        font-size: 14px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .stat-card {
+        min-height: 145px;
+
+        padding: 22px;
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .content-card {
+        padding: 22px 18px;
+    }
+
+    .progress-heading h3 {
+        font-size: 19px;
+    }
+
+    .progress-heading span {
+        font-size: 30px;
+    }
+
+    .tip-card h3 {
+        font-size: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .attendance-header,
+    .report-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .attendance-header button,
+    .report-header button {
+        width: 100%;
+    }
+
+    .attendance-summary {
+        gap: 8px;
+    }
+
+    .attendance-summary span {
+        font-size: 11px;
+    }
+
+    .report-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 15px 5% 25px;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+
+        bottom: 15px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* ================= EXTRA SMALL DEVICES ================= */
+
+@media screen and (max-width: 360px) {
+
+    .brand h1 {
+        font-size: 18px;
+    }
+
+    .page-heading h2 {
+        font-size: 26px;
+    }
+
+    .stat-card h3 {
+        font-size: 34px;
+    }
+
+    .content-card {
+        padding: 18px 14px;
+    }
+
+}
